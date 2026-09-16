@@ -301,6 +301,8 @@ if __name__ == "__main__":
     print("ℹ️  MODE: READ-ONLY TELEMETRY & SIMULATION (Zero Private Keys)")
     print(f"⚙️  Configurazione: Trade Size = {BNB_INPUT_AMOUNT} BNB | Min Net ROI >= +{MIN_PROFIT_PCT}%")
     print(f"🛡️  Filtri Attrito : Min Liquidity = ${MIN_POOL_LIQUIDITY_USD} | Slippage Buffer = {SLIPPAGE_BUFFER_PCT}% | Max Tax = {MAX_ALLOWED_TAX_PCT}%")
+    print("⭐ Support open-source: If this scanner helps you, drop a Star on GitHub!")
+    print("👉 https://github.com/Lukecele/bsc-arbitrage-scanner")
     print("=" * 70 + "\n")
 
     token_list = load_bsc_tokens()
