@@ -21,29 +21,29 @@ This engine implements a **4-Tier Defense & Real-World Friction Model**:
 
 ```mermaid
 flowchart TD
-    TokenList["PancakeSwap & ViaProtocol Lists\n(1,600+ Verified BEP-20 Tokens)"] --> Queue["Evaluation Queue"]
+    TokenList["PancakeSwap and ViaProtocol Lists<br/>(1,600+ Verified BEP-20 Tokens)"] --> Queue["Evaluation Queue"]
     
-    subgraph Tier1 ["Tier 1: Depth & Honeypot Filter"]
-        Queue --> LiqCheck["DEXScreener Liquidity Depth\n(Min. $500 USD Threshold)"]
-        LiqCheck -- "Pass" --> SecCheck["GoPlus Security API\n(Honeypot & Blacklist Verification)"]
+    subgraph Tier1["Tier 1: Depth and Honeypot Filter"]
+        Queue --> LiqCheck["DEXScreener Liquidity Depth<br/>(Min. 500 USD Threshold)"]
+        LiqCheck -- "Pass" --> SecCheck["GoPlus Security API<br/>(Honeypot and Blacklist Verification)"]
     end
     
-    subgraph Tier2 ["Tier 2: Tax-Aware Dual-Leg Routing"]
-        SecCheck -- "Pass" --> BuyQuote["1. KyberSwap Quote: WBNB -> TOKEN"]
+    subgraph Tier2["Tier 2: Tax-Aware Dual-Leg Routing"]
+        SecCheck -- "Pass" --> BuyQuote["1. KyberSwap Quote: WBNB to TOKEN"]
         BuyQuote --> TaxDeduct1["Deduct Buy Tax (Fee-On-Transfer)"]
-        TaxDeduct1 --> SellQuote["2. KyberSwap Quote: TOKEN -> WBNB\n(Calculated on Actual Net Tokens)"]
+        TaxDeduct1 --> SellQuote["2. KyberSwap Quote: TOKEN to WBNB<br/>(Calculated on Actual Net Tokens)"]
         SellQuote --> TaxDeduct2["Deduct Sell Tax"]
     end
     
-    subgraph Tier3 ["Tier 3: Friction & Execution Safeguards"]
+    subgraph Tier3["Tier 3: Friction and Execution Safeguards"]
         TaxDeduct2 --> SlipBuffer["Deduct Slippage Buffer (0.5%)"]
         SlipBuffer --> GasDeduct["Deduct Dynamic Gas Fees (Buy + Sell)"]
-        GasDeduct --> ProfitEval{"Net ROI >= Min Threshold?"}
+        GasDeduct --> ProfitEval{"Net ROI at least Min Threshold?"}
     end
 
-    subgraph Tier4 ["Tier 4: Anti-Phantom Route Compilation"]
-        ProfitEval -- "Yes" --> CalldataBuild["KyberSwap /route/build\n(Calldata Compilation Verification)"]
-        CalldataBuild -- "Executable OK" --> Alert["🚨 Verified Terminal Alert\nBreakdown: Taxes, Gas, Net ROI, Route Paths"]
+    subgraph Tier4["Tier 4: Anti-Phantom Route Compilation"]
+        ProfitEval -- "Yes" --> CalldataBuild["KyberSwap /route/build<br/>(Calldata Compilation Verification)"]
+        CalldataBuild -- "Executable OK" --> Alert["Verified Terminal Alert<br/>Breakdown: Taxes, Gas, Net ROI, Route Paths"]
     end
 ```
 
