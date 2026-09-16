@@ -6,6 +6,7 @@
 [![Aggregator: KyberSwap](https://img.shields.io/badge/Aggregator-KyberSwap_API-00b894)](https://kyberswap.com)
 [![Security: GoPlus](https://img.shields.io/badge/Security-GoPlus_API-6C5CE7)](https://gopluslabs.io)
 [![Telemetry: DEXScreener](https://img.shields.io/badge/Telemetry-DEXScreener_API-2ecc71)](https://dexscreener.com)
+[![GitHub stars](https://img.shields.io/github/stars/Lukecele/bsc-arbitrage-scanner?style=social)](https://github.com/Lukecele/bsc-arbitrage-scanner)
 
 > ℹ️ **Operational Mode & Read-Only Disclosure**:  
 > This software is a **production-grade read-only telemetry scanner and multi-friction route simulation engine**. It queries real-time DEX liquidity aggregators, on-chain token security APIs, and liquidity depth feeds to identify authentic triangular/cross-pair arbitrage spreads between native BNB and verified BEP-20 tokens.  
@@ -134,6 +135,14 @@ python scanner.py
 ## 🔗 Ecosystem Integration
 
 This scanner is an open telemetry tool developed for the **[Arbitrage Inception Ecosystem](https://arbitrage-inc.exchange)**, supporting cross-DEX liquidity research and decentralized arbitrage monitoring on BNB Smart Chain.
+
+---
+
+## ⭐ Support the Project
+
+If you find this arbitrage scanner or multi-friction simulation engine useful for your research, bots, or DeFi development, please consider dropping a **Star** on GitHub. It directly supports open-source maintenance and ecosystem tooling!
+
+[![GitHub stars](https://img.shields.io/github/stars/Lukecele/bsc-arbitrage-scanner?style=social)](https://github.com/Lukecele/bsc-arbitrage-scanner)
 
 ---
 
