@@ -22,17 +22,17 @@ This engine implements a **4-Tier Defense & Real-World Friction Model**:
 
 ```mermaid
 flowchart TD
-    TokenList["PancakeSwap and ViaProtocol Lists<br/>(1,600+ Verified BEP-20 Tokens)"] --> Queue["Evaluation Queue"]
+    TokenList["PancakeSwap and ViaProtocol Lists<br>(1,600+ Verified BEP-20 Tokens)"] --> Queue["Evaluation Queue"]
     
     subgraph Tier1["Tier 1: Depth and Honeypot Filter"]
-        Queue --> LiqCheck["DEXScreener Liquidity Depth<br/>(Min. 500 USD Threshold)"]
-        LiqCheck -- "Pass" --> SecCheck["GoPlus Security API<br/>(Honeypot and Blacklist Verification)"]
+        Queue --> LiqCheck["DEXScreener Liquidity Depth<br>(Min. 500 USD Threshold)"]
+        LiqCheck -->|"Pass"| SecCheck["GoPlus Security API<br>(Honeypot and Blacklist Verification)"]
     end
     
     subgraph Tier2["Tier 2: Tax-Aware Dual-Leg Routing"]
-        SecCheck -- "Pass" --> BuyQuote["1. KyberSwap Quote: WBNB to TOKEN"]
+        SecCheck -->|"Pass"| BuyQuote["1. KyberSwap Quote: WBNB to TOKEN"]
         BuyQuote --> TaxDeduct1["Deduct Buy Tax (Fee-On-Transfer)"]
-        TaxDeduct1 --> SellQuote["2. KyberSwap Quote: TOKEN to WBNB<br/>(Calculated on Actual Net Tokens)"]
+        TaxDeduct1 --> SellQuote["2. KyberSwap Quote: TOKEN to WBNB<br>(Calculated on Actual Net Tokens)"]
         SellQuote --> TaxDeduct2["Deduct Sell Tax"]
     end
     
@@ -43,8 +43,8 @@ flowchart TD
     end
 
     subgraph Tier4["Tier 4: Anti-Phantom Route Compilation"]
-        ProfitEval -- "Yes" --> CalldataBuild["KyberSwap /route/build<br/>(Calldata Compilation Verification)"]
-        CalldataBuild -- "Executable OK" --> Alert["Verified Terminal Alert<br/>Breakdown: Taxes, Gas, Net ROI, Route Paths"]
+        ProfitEval -->|"Yes"| CalldataBuild["KyberSwap /route/build<br>(Calldata Compilation Verification)"]
+        CalldataBuild -->|"Executable OK"| Alert["Verified Terminal Alert<br>Breakdown: Taxes, Gas, Net ROI, Route Paths"]
     end
 ```
 
