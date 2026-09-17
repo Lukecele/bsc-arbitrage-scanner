@@ -134,7 +134,7 @@ python scanner.py
 
 ## 🔗 Ecosystem Integration
 
-This scanner is an open telemetry tool developed for the **[Arbitrage Inception Ecosystem](https://arbitrage-inc.exchange)**, supporting cross-DEX liquidity research and decentralized arbitrage monitoring on BNB Smart Chain.
+This scanner is an open telemetry tool developed for the **[Arbitrage Inception Ecosystem](https://arbitrage-inc.exchange)** ([github.com/arbincept](https://github.com/arbincept)), supporting cross-DEX liquidity research and decentralized arbitrage monitoring on BNB Smart Chain.
 
 ---
 
